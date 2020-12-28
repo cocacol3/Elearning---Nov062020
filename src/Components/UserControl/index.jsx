@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Box } from "@material-ui/core";
 import React from "react";
 import Col from "reactstrap/lib/Col";
@@ -47,3 +48,18 @@ const UserControl = () => {
 };
 
 export default UserControl;
+=======
+import React from 'react'
+
+import "./index.scss"
+
+const UserControl = () => {
+    return (
+        <div>
+            this is User control
+        </div>
+    )
+}
+
+export default UserControl
+>>>>>>> testagain2
