@@ -11,6 +11,7 @@ const authReducer = (state = initialState, action) => {
     }
     case "DELETE_USER": {
 <<<<<<< HEAD
+<<<<<<< HEAD
       return {...state, loggedInUser: action.payload};
 =======
     //   return {...state, credentials: action.payload};
@@ -20,6 +21,12 @@ const authReducer = (state = initialState, action) => {
 >>>>>>> testagain2
     }
     default:
+=======
+      return {...state, loggedInUser: action.payload};
+    }
+    default:
+      return state;
+>>>>>>> testagain
   }
 };
 
