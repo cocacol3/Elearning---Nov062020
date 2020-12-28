@@ -9,12 +9,17 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import UserControl from "../UserControl/index";
 import CourseManagement from "../CourseManagement/index";
 =======
 import UserControl from "../UserControl/index"
 import CourseManagement from "../CourseManagement/index"
 >>>>>>> testagain2
+=======
+import UserControl from "../UserControl/index";
+import CourseManagement from "../CourseManagement/index";
+>>>>>>> updateSearchApi
 
 import "./index.scss";
 
@@ -55,10 +60,14 @@ const DashBoard = () => {
   const [value, setValue] = React.useState(0);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const handleChange = (event, newValue) => {
 =======
   const handleChange = (event,newValue) => {
 >>>>>>> testagain2
+=======
+  const handleChange = (event, newValue) => {
+>>>>>>> updateSearchApi
     setValue(newValue);
   };
 
@@ -66,6 +75,9 @@ const DashBoard = () => {
     <>
       <Box className="dashBoard">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> updateSearchApi
           <Row>
             <Col xs="12" lg="3" md="3">
               <Box className="dashBoard__left">
@@ -112,6 +124,7 @@ const DashBoard = () => {
               </Box>
             </Col>
           </Row>
+<<<<<<< HEAD
 =======
         <Row>
           <Col xs="12" lg="3" md="3">
@@ -162,6 +175,8 @@ const DashBoard = () => {
           </Col>
         </Row>
 >>>>>>> testagain2
+=======
+>>>>>>> updateSearchApi
       </Box>
     </>
   );

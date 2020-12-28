@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 import "../../scss/main.scss";
 import logo from "../../Assets/img/logo-inverse-162x51.png";
+=======
+import { Container, Grid, Typography } from "@material-ui/core";
+import React from "react";
+import style from "./style";
+>>>>>>> updateSearchApi
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";

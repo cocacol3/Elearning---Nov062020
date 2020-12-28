@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> updateSearchApi
 import { Box } from "@material-ui/core";
 import React from "react";
 import Col from "reactstrap/lib/Col";
@@ -48,6 +51,7 @@ const UserControl = () => {
 };
 
 export default UserControl;
+<<<<<<< HEAD
 =======
 import React from 'react'
 
@@ -63,3 +67,5 @@ const UserControl = () => {
 
 export default UserControl
 >>>>>>> testagain2
+=======
+>>>>>>> updateSearchApi

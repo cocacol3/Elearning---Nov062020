@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { getListCourse } from "../../Action/courseAction";
 =======
 import { getListCourse } from "../../Redux/Actions/courseAction";
@@ -14,6 +15,9 @@ import { getListCourse } from "../../Redux/Actions/courseAction";
 =======
 import { getListCourse } from "../../Action/courseAction";
 >>>>>>> testagain
+=======
+import { getListCourse } from "../../Action/courseAction";
+>>>>>>> updateSearchApi
 
 const Course = () => {
   const dispatch = useDispatch();
