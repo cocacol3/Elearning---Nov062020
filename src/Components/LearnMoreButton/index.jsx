@@ -8,7 +8,11 @@ const LearnMoreButton = () => {
     <>
       <Box className="learnMoreButton">
         <Box>
+<<<<<<< HEAD
           <NavLink className="learnMoreButton__link" to="/about">
+=======
+          <NavLink className="learnMoreButton__link" to="/course">
+>>>>>>> update2021
             LEARN MORE
           </NavLink>
         </Box>

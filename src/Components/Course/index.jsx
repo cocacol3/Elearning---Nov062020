@@ -8,6 +8,7 @@ import { useEffect } from "react";
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { getListCourse } from "../../Action/courseAction";
 =======
 import { getListCourse } from "../../Redux/Actions/courseAction";
@@ -18,6 +19,9 @@ import { getListCourse } from "../../Action/courseAction";
 =======
 import { getListCourse } from "../../Action/courseAction";
 >>>>>>> updateSearchApi
+=======
+import { getListCourse } from "../../Redux/Actions/courseAction";
+>>>>>>> update2021
 
 const Course = () => {
   const dispatch = useDispatch();

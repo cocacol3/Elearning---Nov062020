@@ -3,7 +3,11 @@ import Header from "../../Components/Header/index";
 import Carousel from "../../Components/Carousel/index";
 import Banner from "../../Components/Banner/index";
 import Category from "../../Components/Category/index";
+<<<<<<< HEAD
 import AdverBanner from "../../Components/AdverBanner/index";
+=======
+import AdvertBanner from "../../Components/AdvertBanner/index";
+>>>>>>> update2021
 import Course from "../../Components/Course";
 import BottomBanner from "../../Components/HomeBottomBanner";
 import OurTeacher from "../../Components/HomeOurTeachers";
@@ -29,10 +33,17 @@ const Home = () => {
           <Carousel />
           <Banner />
           <Category />
+<<<<<<< HEAD
           <AdverBanner />
           <Course />
           <BottomBanner />
           <OurTeacher />
+=======
+          <AdvertBanner />
+          <Course />
+          <BottomBanner />
+          <OurTeacher/>
+>>>>>>> update2021
           <Event />
           <Footer />
         </>

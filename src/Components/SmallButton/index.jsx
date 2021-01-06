@@ -9,7 +9,11 @@ const SmallButton = () => {
         return (
             <>
             <Box className="button">
+<<<<<<< HEAD
                 <NavLink className="button__link" to="/event">Get course</NavLink>
+=======
+                <NavLink className="button__link" to="/course">Get course</NavLink>
+>>>>>>> update2021
             </Box>
             </>
         )

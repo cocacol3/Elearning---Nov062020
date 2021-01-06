@@ -135,11 +135,14 @@ const LogInUser = () => {
                         label="Profile"
                         {...a11yProps(0)}
                       />
+<<<<<<< HEAD
                       <Tab
                         className="logInUser__tabItem"
                         label="Wish Lists"
                         {...a11yProps(1)}
                       />
+=======
+>>>>>>> update2021
                     </Tabs>
                   </AppBar>
                   <SwipeableViews

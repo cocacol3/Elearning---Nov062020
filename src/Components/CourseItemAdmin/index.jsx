@@ -18,12 +18,9 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import img from "../../Assets/img/user-4-49x49.jpg";
 import { Box, Typography } from "@material-ui/core";
 import Popover from "@material-ui/core/Popover";
-import { useDispatch } from "react-redux";
-import "./index.scss";
-<<<<<<< HEAD
-=======
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
->>>>>>> update2021
+import { deleteCourse } from "../../Redux/Actions/courseAction";
 
 const useStyles = makeStyles((theme) => ({
   // Card setup
@@ -60,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   // End of Popover setup
 }));
 
-const CourseItem = (props) => {
+const CourseItemAdmin = (props) => {
   // Card setup
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -85,7 +82,6 @@ const CourseItem = (props) => {
   // End of Popover setup
 
   // Put to wish list
-<<<<<<< HEAD
   const dispatch = useDispatch();
   const putToWishList = () => {
     dispatch({
@@ -93,16 +89,14 @@ const CourseItem = (props) => {
       payload: props,
     });
   };
-=======
-  // const dispatch = useDispatch();
-  // const putToWishList = () => {
-  //   dispatch({
-  //     type: "PUT_TO_WISHLIST",
-  //     payload: props,
-  //   });
-  // };
->>>>>>> update2021
   // End of put to wish list
+
+  const accessToken = useSelector((state) => state.auth.accessToken);
+
+  const _handleDelete = (courseID) => {
+    console.log(accessToken);
+    dispatch(deleteCourse(courseID, accessToken));
+  };
 
   return (
     <>
@@ -114,19 +108,11 @@ const CourseItem = (props) => {
                 <img src={img} />
               </Avatar>
             }
-<<<<<<< HEAD
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
-=======
             // action={
             //   <IconButton aria-label="settings">
             //     <MoreVertIcon />
             //   </IconButton>
             // }
->>>>>>> update2021
             title={props.course.nguoiTao.hoTen}
           />
           <Box className="course__item__image">
@@ -136,11 +122,7 @@ const CourseItem = (props) => {
           <CardContent>{props.course.tenKhoaHoc}</CardContent>
           <CardActions disableSpacing>
             {/* Detaile icon */}
-<<<<<<< HEAD
-            <Box
-=======
             {/* <Box
->>>>>>> update2021
               aria-label="learn more"
               aria-owns={open ? "learn-more-popover" : undefined}
               aria-haspopup="true"
@@ -171,19 +153,11 @@ const CourseItem = (props) => {
               >
                 <Typography>Learn More</Typography>
               </Popover>
-<<<<<<< HEAD
-            </Box>
-            {/* End of Detail icon */}
-
-            {/* Add to favorite icon */}
-            <Box
-=======
             </Box> */}
             {/* End of Detail icon */}
 
             {/* Add to favorite icon */}
             {/* <Box
->>>>>>> update2021
               aria-label="add to favorites"
               aria-owns={open ? "mouse-over-popover-2" : undefined}
               aria-haspopup="true"
@@ -214,22 +188,31 @@ const CourseItem = (props) => {
               >
                 <span>Add to Wish-list</span>
               </Popover>
-<<<<<<< HEAD
-            </Box>
-            {/* End of Add to favourite icon */}
-
-=======
             </Box> */}
             {/* End of Add to favourite icon */}
 
-            <Link
-              className="course__item__button" id="button"
+            {/* <Link
+              className="course__item__button"
+              id="button"
               to={`/detail/${props.course.maKhoaHoc}`}
             >
-              View Full Details
-            </Link>
+              Proceed To Detail Page
+            </Link> */}
 
->>>>>>> update2021
+            <Link
+              className="course__item__button"
+              to={`/students-list/${props.course.maKhoaHoc}`}
+            >
+              List of Registered Students
+            </Link>
+            <br />
+            <button
+              className="course__item__button"
+              onClick={() => _handleDelete(props.course.maKhoaHoc)}
+            >
+              Delete Course
+            </button>
+
             <IconButton
               className={clsx(classes.expand, {
                 [classes.expandOpen]: expanded,
@@ -249,4 +232,4 @@ const CourseItem = (props) => {
     </>
   );
 };
-export default CourseItem;
+export default CourseItemAdmin;

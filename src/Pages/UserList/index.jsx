@@ -58,8 +58,13 @@ class UserList extends Component {
 
 const mapStateToProps = (state) => {
   return {
+<<<<<<< HEAD
     userList: state.user.userList,
     accessToken: state.user.accessToken,
+=======
+    userList: state.auth.userList,
+    accessToken: state.auth.accessToken,
+>>>>>>> update2021
   };
 };
 

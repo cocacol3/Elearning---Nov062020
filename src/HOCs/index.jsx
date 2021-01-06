@@ -12,9 +12,9 @@ const auth = ({ path, Component }) => {
           }
 
           alert(
-            "Chỉ có giáo vụ mới có quyền truy cập trang này, vui lòng đăng nhập!"
+            "Please log in as administrator to access this page!"
           );
-          return <Redirect to="/sign-in" />;
+          return <Redirect to="/" />;
         }}
       />
     </div>

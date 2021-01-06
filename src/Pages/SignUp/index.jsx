@@ -64,7 +64,11 @@ const SignUp = () => {
       ) : (
         <>
           <Header />
+<<<<<<< HEAD
           <PageBanner />
+=======
+          <PageBanner title='Sign Up'/>
+>>>>>>> update2021
           <Box className="signUp">
             <Container>
               <Box className="signUp__text">

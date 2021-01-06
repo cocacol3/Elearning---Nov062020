@@ -8,6 +8,7 @@ import {
 import { courseService, userService } from "../../Services";
 
 class CourseStudents extends Component {
+<<<<<<< HEAD
   render() {
     return (
       <div>
@@ -42,6 +43,8 @@ class CourseStudents extends Component {
     );
   }
 
+=======
+>>>>>>> update2021
   _handleConfirmRegistration = (userName) => {
     userService
       .confirmRegistration(
@@ -71,7 +74,11 @@ class CourseStudents extends Component {
       )
       .then((res) => {
         console.log(res);
+<<<<<<< HEAD
         alert("Học viên đăng ký thành công!")
+=======
+        alert("Student was registered successfully to this course!")
+>>>>>>> update2021
       })
       .catch((err) => {
         console.log(err);
@@ -100,10 +107,50 @@ class CourseStudents extends Component {
     return JSON.parse(localStorage.getItem("accessToken"));
   };
 
+<<<<<<< HEAD
   _;
 
   componentDidMount() {
     const accessToken = this._getAccessToken();
+=======
+  render() {
+    return (
+      <div>
+        DANH SÁCH HỌC VIÊN:
+        {/* {this.props.StudentList.map((course, index) => (
+          <div className="card col-3">
+            <p>{course.hoTen}</p>
+            <br />
+            <button
+              className="btn btn-success"
+              onClick={() => this._handleRegister(course.taiKhoan)}
+            >
+              Đăng ký
+            </button>
+            <br />
+            <button
+              className="btn btn-success"
+              onClick={() => this._handleConfirmRegistration(course.taiKhoan)}
+            >
+              Ghi danh
+            </button>
+            <br />
+            <button
+              className="btn btn-success"
+              onClick={() => this._handleCancelRegistration(course.taiKhoan)}
+            >
+              Hủy ghi danh
+            </button>
+          </div>
+        ))} */}
+      </div>
+    );
+  }
+
+  componentDidMount() {
+    const accessToken = this._getAccessToken();
+    console.log(accessToken)
+>>>>>>> update2021
     courseService
       .fetchCourseStudents(this.props.match.params.listId, accessToken)
       .then((res) => {
@@ -118,12 +165,21 @@ class CourseStudents extends Component {
   }
 }
 
+<<<<<<< HEAD
 const mapStateToProps = (state) => ({
   StudentList: state.course.courseStudents || {
     taiKhoan: "",
     hoTen: "",
   },
   accessToken: state.user.accessToken,
+=======
+const mapStateToProps = (courseReducer, authReducer) => ({
+  StudentList: courseReducer.courseStudents || {
+    taiKhoan: "",
+    hoTen: "",
+  },
+  accessToken: authReducer.accessToken,
+>>>>>>> update2021
 });
 
 export default connect(mapStateToProps)(CourseStudents);

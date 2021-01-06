@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 export const FETCH_COURSES = "FETCH_COURSES";
+=======
+>>>>>>> update2021
 export const FETCH_COURSE_DETAIL = "FETCH_COURSE_DETAIL";
 export const FETCH_CREDENTIALS = "FETCH_CREDENTIALS";
 export const FETCH_COURSE_CATEGORIES = "FETCH_COURSE_CATEGORIES";
@@ -18,8 +21,14 @@ export const SIGN_OUT = "SIGN_OUT";
 export const FETCH_USER_LIST = "FETCH_USER_LIST";
 export const FETCH_COURSE_RESULT = "FETCH_COURSE_RESULT";
 export const FETCH_USER_INFO = "FETCH_USER_INFO";
+<<<<<<< HEAD
 
 
 
 
+=======
+export const GET_LIST_COURSE = "GET_LIST_COURSE";
+export const SET_USER = "SET_USER";
+export const CLEAR_COURSE_RESULT = "CLEAR_COURSE_RESULT";
+>>>>>>> update2021
 
