@@ -1,0 +1,45 @@
+.admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+
+  &__item {
+    margin: 20px 0;
+
+    form{
+        margin-top: 20px !important;
+        text-align: center;
+    }
+
+    select{
+        width: 25%;
+        margin: auto;
+    }
+
+    &__top {
+      margin-top: 20px !important;
+    }
+
+    &__button {
+      background-color: #353535 !important;
+
+      &:hover {
+        border-color: #4968ee !important;
+        background-color: #fff !important;
+        color: #4968ee !important;
+      }
+    }
+
+    button {
+      width: 50%;
+      margin: auto;
+      display: block;
+      background-color: #4968ee;
+      border-radius: 0;
+      padding: 10px;
+      border-color: transparent !important;
+      @include TransitionValue();
+    }
+  }
+}
