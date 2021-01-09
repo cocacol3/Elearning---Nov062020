@@ -126,14 +126,16 @@ class CourseAdmin extends Component {
   render() {
     return (
       <div>
-        <div className="w-75 mx-auto admin">
+        <div className="admin">
           <div className="admin__item">
             <Button onClick={this._onShowAddCourse}>Add a new course</Button>
             {this.state.showAddCourse ? (
               <>
                 <form className="admin__item__top">
                   <div className="form-group">
-                    <label>Course ID: </label>
+                    <label>
+                      To start mananging courses, please select a Course ID:{" "}
+                    </label>
                     <input
                       type="text"
                       className="form-control"
@@ -189,7 +191,7 @@ class CourseAdmin extends Component {
                   <div className="text-center">
                     <button
                       onClick={this._handleSubmit}
-                      className="admin__item__button btn btn-success"
+                      className="admin__item__button btn btn-secondary"
                     >
                       Add
                     </button>
@@ -205,6 +207,10 @@ class CourseAdmin extends Component {
             </Button>
             {this.state.showCategories ? (
               <div className="admin__item__top">
+                <p className="text-center">
+                  Click on a course catergory to show relevant courses and select to
+                  remove any course:
+                </p>
                 <CourseCatergories />
               </div>
             ) : null}

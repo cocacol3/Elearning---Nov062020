@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { userService } from "../../Services";
+import { courseService, userService } from "../../Services";
 import { connect } from "react-redux";
 import { createAction } from "../../Redux/Actions";
 import {
@@ -25,92 +25,6 @@ import Row from "reactstrap/lib/Row";
 import CourseItemAdmin from "../CourseItemAdmin";
 
 class RegisterAdmin extends Component {
-  // _handleAddUser = (values) => {
-  //   userService
-  //     .addUser(values, this.props.accessToken)
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       alert("Đã thêm tài khoản thành công");
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
-  // _handleSearch = (searchKey) => {
-  //   console.log(searchKey.searchKey);
-  //   userService
-  //     .searchUser(searchKey.searchKey)
-  //     .then((res) => {
-  //       this.props.dispatch(createAction(FETCH_USER_LIST, res.data));
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
-  _getUserName = () => {
-    const userName = JSON.parse(localStorage.getItem("credentials"));
-    return userName.taiKhoan;
-  };
-
-  // _getUserDetail = () => {
-  //   // const accessToken = this._getAccessToken();
-  //   userService
-  //     .fetchUserDetail(this.props.accessToken)
-  //     .then((res) => {
-  //       console.log(res.data)
-  //       this.props.dispatch(createAction(FETCH_USER_DETAIL, res.data));
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
-  _getUnregisteredCourses = () => {
-    const userName = this._getUserName();
-    console.log(userName);
-    console.log(this.props.accessToken);
-    userService
-      .fetchUnregistedCourses(userName, this.props.accessToken)
-      .then((res) => {
-        console.log(res);
-        this.props.dispatch(createAction(FETCH_UNREGISTERED_COURSES, res.data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  _getPendingCourses = () => {
-    const userName = this._getUserName();
-    userService
-      .fetchPendingCourses(userName, this.props.accessToken)
-      .then((res) => {
-        console.log(res);
-        this.props.dispatch(createAction(FETCH_PENDING_COURSES, res.data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  _getApprovedCourses = () => {
-    const userName = this._getUserName();
-    userService
-      .fetchApprovedCourses(userName, this.props.accessToken)
-      .then((res) => {
-        this.props.dispatch(createAction(FETCH_APPROVED_COURSES, res.data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  _handleSubmit = (values) => {
-    console.log(values);
-    return this.props.dispatch(createAction(FETCH_COURSE_ID, values));
-  };
 
   _getUnregisteredStudents = () => {
     console.log(this.props.courseID);
@@ -159,84 +73,71 @@ class RegisterAdmin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showOption1: false,
       showOption2: false,
       showOption3: false,
+      showOption7: false,
+      showOption8: false,
+      showOption9: false,
     };
-    this._onShowOption1 = this._onShowOption1.bind(this);
     this._onShowOption2 = this._onShowOption2.bind(this);
     this._onShowOption3 = this._onShowOption3.bind(this);
-  }
-
-  _onShowOption1() {
-    this.setState({
-      showOption1: !this.state.showOption1,
-    });
+    this._onShowOption7 = this._onShowOption7.bind(this);
+    this._onShowOption8 = this._onShowOption8.bind(this);
+    this._onShowOption9 = this._onShowOption9.bind(this);
   }
 
   _onShowOption2() {
     this.setState({
       showOption2: !this.state.showOption2,
     });
+    this._getUnregisteredStudents();
+    this._getPendingStudents();
+    this._getApprovedStudents();
   }
 
   _onShowOption3() {
     this.setState({
       showOption3: true,
     });
+    this._getUnregisteredStudents();
+
   }
 
-  renderUnregisteredCourses = () => {
-    if (!this.props.unregisteredCourses) return null;
-
-    return this.props.unregisteredCourses.map((course, index) => {
-      return (
-        <div className="col-3">
-          {course.biDanh}
-          {course.maKhoaHoc}
-          {course.tenKhoaHoc}
-        </div>
-      );
+  _onShowOption7() {
+    this.setState({
+      showOption7: !this.state.showOption7,
     });
-  };
+    this._getPendingStudents();
+  }
 
-  renderPendingCourses = () => {
-    if (!this.props.pendingCourses) return null;
-
-    return this.props.pendingCourses.map((course, index) => {
-      return (
-        <div className="col-3">
-          {course.biDanh}
-          {course.maKhoaHoc}
-          {course.tenKhoaHoc}
-        </div>
-      );
+  _onShowOption8() {
+    this.setState({
+      showOption8: !this.state.showOption8,
     });
-  };
+    this._getApprovedStudents();
+  }
 
-  renderApprovedCourses = () => {
-    if (!this.props.approvedCourses) return null;
-
-    return this.props.approvedCourses.map((course, index) => {
-      return (
-        <div className="col-3">
-          {course.biDanh}
-          {course.maKhoaHoc}
-          {course.tenKhoaHoc}
-        </div>
-      );
+  _onShowOption9() {
+    this.setState({
+      showOption9: !this.state.showOption9,
     });
-  };
+  }
 
   renderUnregisteredStudents = () => {
     if (!this.props.unregisteredStudents) return null;
 
-    return this.props.unregisteredStudents.map((course, index) => {
+    return this.props.unregisteredStudents.map((item, index) => {
       return (
-        <div className="col-3">
-          {course.taiKhoan}
-          {course.hoTen}
-          {course.biDanh}
+        <div className="col-xl-4 col-lg-6 card admin__item__account__detail__col">
+          <p><span>Username:</span> {item.taiKhoan || "N/A"}</p>
+          <p><span>Fullname:</span> {item.hoTen || "N/A"}</p>
+          <p><span>Nickname:</span> {item.biDanh || "N/A"}</p>
+          <button
+            className="admin__item__button__sub admin__item__button__item admin__item__user__button btn btn-secondary"
+            onClick={() => this._handleRegister(item.taiKhoan)}
+          >
+            Register
+          </button>
         </div>
       );
     });
@@ -245,12 +146,18 @@ class RegisterAdmin extends Component {
   renderPendingStudents = () => {
     if (!this.props.pendingStudents) return null;
 
-    return this.props.pendingStudents.map((course, index) => {
+    return this.props.pendingStudents.map((item, index) => {
       return (
-        <div className="col-3">
-          {course.taiKhoan}
-          {course.hoTen}
-          {course.biDanh}
+        <div className="col-xl-4 col-lg-6 card admin__item__account__detail__col">
+        <p><span>Username:</span> {item.taiKhoan || "N/A"}</p>
+        <p><span>Fullname:</span> {item.hoTen || "N/A"}</p>
+        <p><span>Nickname:</span> {item.biDanh || "N/A"}</p>
+        <button
+          className="admin__item__button__sub admin__item__button__item admin__item__user__button btn btn-secondary"
+          onClick={() => this._handleConfirmRegistration(item.taiKhoan)}
+        >
+          Confirm Registration
+        </button>
         </div>
       );
     });
@@ -259,93 +166,84 @@ class RegisterAdmin extends Component {
   renderApprovedStudents = () => {
     if (!this.props.approvedStudents) return null;
 
-    return this.props.approvedStudents.map((course, index) => {
+    return this.props.approvedStudents.map((item, index) => {
       return (
-        <div className="col-3">
-          {course.taiKhoan}
-          {course.hoTen}
-          {course.biDanh}
+        <div className="col-xl-4 col-lg-6 card admin__item__account__detail__col">
+        <p><span>Username:</span> {item.taiKhoan || "N/A"}</p>
+        <p><span>Fullname:</span> {item.hoTen || "N/A"}</p>
+        <p><span>Nickname:</span> {item.biDanh || "N/A"}</p>
+        <button
+className="admin__item__button__sub admin__item__button__item admin__item__user__button btn btn-secondary"          onClick={() => this._handleCancelRegistration(item.taiKhoan)}
+        >
+          Cancel Registration
+        </button>
         </div>
       );
     });
   };
 
-  // _handleUpdateUserDetail = (values) => {
-  //   userService
-  //     .updateUserDetail(values, this.props.accessToken)
-  //     .then((res) => {
-  //       alert("Cập nhập thông tin tài khoản thành công!");
-  //       console.log(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  _handleRegister = (username) => {
+    console.log(username);
+    console.log(this.props.courseID.maKhoaHoc);
+    courseService
+      .registerCourse(
+        {
+          maKhoaHoc: this.props.courseID.maKhoaHoc,
+          taiKhoan: username,
+        },
+        this.props.accessToken
+      )
+      .then((res) => {
+        console.log(res);
+        alert("Student was registered successfully to this course!");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-  // _handleShowUserInfo = () => {
-  //   userService
-  //     .fetchUserInfo({taiKhoan: this.props.credentials.taiKhoan}, this.props.accessToken)
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       this.props.dispatch(createAction(FETCH_USER_INFO, res.data));
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  _handleCancelRegistration = (userName) => {
+    courseService
+      .cancelRegistration(
+        {
+          maKhoaHoc: this.props.courseID.maKhoaHoc,
+          taiKhoan: userName,
+        },
+        this.props.accessToken
+      )
+      .then((res) => {
+        console.log(res);
+        alert(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  _handleConfirmRegistration = (userName) => {
+    courseService
+      .confirmRegistration(
+        {
+          maKhoaHoc: this.props.courseID.maKhoaHoc,
+          taiKhoan: userName,
+        },
+        this.props.accessToken
+      )
+      .then((res) => {
+        console.log(res);
+        alert(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   render() {
     return (
-      <div>
-        <div className="admin__item">
-          <Button onClick={this._onShowOption1}>Show Course Catergories</Button>
-          {this.state.showOption1 ? (
-            <div className="admin__item__top">
-              <button
-                className="admin__item__button btn btn-success"
-                onClick={this._getUnregisteredCourses}
-              >
-                List of Unregistered Courses
-              </button>
-              <br />
-              <Container>
-                <Box className="allCourse">
-                  <Box textAlign="center" className="allCourse__headline"></Box>
-                  <Row>{this.renderUnregisteredCourses()}</Row>
-                </Box>
-              </Container>
-              <button
-                className="admin__item__button btn btn-success"
-                onClick={this._getPendingCourses}
-              >
-                List of Pending for Approval Courses
-              </button>
-              <Container>
-                <Box className="allCourse">
-                  <Box textAlign="center" className="allCourse__headline"></Box>
-                  <Row>{this.renderPendingCourses()}</Row>
-                </Box>
-              </Container>
-              <button
-                className="admin__item__button btn btn-success"
-                onClick={this._getApprovedCourses}
-              >
-                List of Pending for Approval Courses
-              </button>
-              <Container>
-                <Box className="allCourse">
-                  <Box textAlign="center" className="allCourse__headline"></Box>
-                  <Row>{this.renderApprovedCourses()}</Row>
-                </Box>
-              </Container>
-            </div>
-          ) : null}
-        </div>
+      <div className="admin">
 
         <div className="admin__item">
-          <Button onClick={this._onShowOption2}>Show Course Catergories</Button>
-          {this.state.showOption2 ? (
-            <>
+
               <Formik
                 initialValues={{
                   maKhoaHoc: "",
@@ -369,73 +267,81 @@ class RegisterAdmin extends Component {
                       <div className="admin__item">
                         <button
                           onClick={this._onShowOption3}
-                          className="admin__item__top admin__item__button btn btn-success"
+                          className="admin__item admin__item__top btn btn-secondary"
                         >
                           Select
                         </button>
                         {this.state.showOption3 ? (
                           <>
                             <button
-                              className="admin__item__top admin__item__button  btn btn-success"
-                              onClick={this._getUnregisteredStudents}
+                              className="admin__item__top admin__item__button  btn btn-secondary"
+                              onClick={this._onShowOption7}
                             >
                               List of Unregistered Students
                             </button>
-                            <Container>
-                              <Box className="allCourse">
-                                <Box
-                                  textAlign="center"
-                                  className="allCourse__headline"
-                                ></Box>
-                                <Row>{this.renderUnregisteredCourses()}</Row>
-                              </Box>
-                            </Container>
+                            {this.state.showOption7 ? (
+                              <div className="admin__item__top">
+                                <Container>
+                                  <Box className="allCourse">
+                                    <Box
+                                      textAlign="center"
+                                      className="allCourse__headline"
+                                    ></Box>
+                                    <Row className="admin__item__account__detail__row">
+                                      {this.renderUnregisteredStudents()}
+                                    </Row>
+                                  </Box>
+                                </Container>
+                              </div>
+                            ) : null}
+
                             <button
-                              className="admin__item__button btn btn-success"
-                              onClick={this._getPendingStudents}
+                              className="admin__item__button btn btn-secondary"
+                              onClick={this._onShowOption8}
                             >
                               List of Pending for Approval Students
                             </button>
-                            <Container>
-                              <Box className="allCourse">
-                                <Box
-                                  textAlign="center"
-                                  className="allCourse__headline"
-                                ></Box>
-                                <Row>{this.renderPendingStudents()}</Row>
-                              </Box>
-                            </Container>
+                            {this.state.showOption8 ? (
+                              <div className="admin__item__top">
+                                <Container>
+                                  <Box className="allCourse">
+                                    <Box
+                                      textAlign="center"
+                                      className="allCourse__headline"
+                                    ></Box>
+                                    <Row className="admin__item__account__detail__row">{this.renderPendingStudents()}</Row>
+                                  </Box>
+                                </Container>
+                              </div>
+                            ) : null}
+
                             <button
-                              className="admin__item__button btn btn-success"
-                              onClick={this._getApprovedStudents}
+                              className="admin__item__button btn btn-secondary"
+                              onClick={this._onShowOption9}
                             >
                               List of Approved Students
                             </button>
-                            <Container>
-                              <Box className="allCourse">
-                                <Box
-                                  textAlign="center"
-                                  className="allCourse__headline"
-                                ></Box>
-                                <Row>{this.renderApprovedStudents()}</Row>
-                              </Box>
-                            </Container>
+                            {this.state.showOption9 ? (
+                              <div className="admin__item__top">
+                                <Container>
+                                  <Box className="allCourse">
+                                    <Box
+                                      textAlign="center"
+                                      className="allCourse__headline"
+                                    ></Box>
+                                    <Row className="admin__item__account__detail__row">{this.renderApprovedStudents()}</Row>
+                                  </Box>
+                                </Container>
+                              </div>
+                            ) : null}
                           </>
                         ) : null}
                       </div>
 
-                      {/* <div className="admin__item">
-                        <Button onClick={this._onShowOption3}>
-                          Show Course Catergories
-                        </Button>
-                        
-                      </div> */}
                     </div>
                   </Form>
                 )}
               />
-            </>
-          ) : null}
         </div>
       </div>
     );
@@ -445,22 +351,8 @@ class RegisterAdmin extends Component {
   }
 }
 
-// // Courses
-// const dispatch = useDispatch();
-// // getCourseList() will run when the component fist rendered to get courselist
-// useEffect(() => {
-//   dispatch(getListCourse());
-// }, [dispatch]);
-// // Get courseList from store
-// const courseList = useSelector((state) => {
-//   return state.course.courseList;
-// });
-
 const mapStateToProps = (state) => {
   return {
-    unregisteredCourses: state.auth.unregisteredCourses,
-    pendingCourses: state.auth.pendingCourses,
-    approvedCourses: state.auth.approvedCourses,
     unregisteredStudents: state.auth.unregisteredStudents,
     pendingStudents: state.auth.pendingStudents,
     approvedStudents: state.auth.approvedStudents,

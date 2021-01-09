@@ -262,11 +262,7 @@
               margin-left: 12px;
             }
 
-<<<<<<< HEAD
-            a,
-=======
             &__link span,
->>>>>>> update2021
             p {
               color: #ffffff;
               font-size: 16px;
@@ -279,16 +275,11 @@
               @include TransitionValue();
             }
 
-<<<<<<< HEAD
-            a:hover {
-              color: #72d5a5;
-=======
             &__link span:hover {
               color: #72d5a5;
             }
 
             &__link:hover {
->>>>>>> update2021
               text-decoration: none;
             }
           }

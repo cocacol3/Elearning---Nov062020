@@ -85,7 +85,7 @@ const SignInModal = (props) => {
                 <Box>
                   <Box className="modal__link">
                     <h6>Don't have an account?</h6>
-                    <NavLink to="/signup">Sign up here!</NavLink>
+                    <NavLink to="/sign-up">Sign up here!</NavLink>
                   </Box>
 
                   <Box className="modal__icon">

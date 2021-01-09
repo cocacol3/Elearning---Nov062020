@@ -3,18 +3,63 @@
   flex-direction: column;
   justify-content: flex-start;
   align-content: center;
+  width: 75% !important;
+  margin: auto !important;
+
+  p span,
+  table tr td span {
+    font-weight: bold;
+  }
 
   &__item {
-    margin: 20px 0;
+    &__account__detail {
+      display: flex;
+      justify-content: space-evenly;
 
-    form{
-        margin-top: 20px !important;
+      &__row {
+        justify-content: flex-start;
+        margin-bottom: 20px;
+      }
+
+      &__col {
+        align-content: center;
+        text-align: left;
+        border-radius: 1.25rem;
+        padding: 10px;
+        justify-content: space-around;
+        min-height: 160px;
+
+        p {
+          margin-bottom: 0;
+        }
+      }
+
+      &__title {
         text-align: center;
+        padding-top: 10px;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      td p {
+        padding-right: 50px;
+
+        @media screen and (max-width:1279px){
+          padding-right: 0;
+        }
+      }
     }
 
-    select{
-        width: 25%;
-        margin: auto;
+    form {
+      margin-top: 20px !important;
+      text-align: center;
+    }
+
+    select {
+      width: 25%;
+      margin: auto;
     }
 
     &__top {
@@ -24,6 +69,10 @@
     &__button {
       background-color: #353535 !important;
 
+      &__item {
+        width: auto !important;
+      }
+
       &:hover {
         border-color: #4968ee !important;
         background-color: #fff !important;
@@ -31,9 +80,10 @@
       }
     }
 
-    button {
+    button,
+    &_button_sub {
       width: 50%;
-      margin: auto;
+      margin: 20px auto;
       display: block;
       background-color: #4968ee;
       border-radius: 0;
@@ -41,5 +91,38 @@
       border-color: transparent !important;
       @include TransitionValue();
     }
+
+    &__user {
+      &__button {
+        margin: 12px auto !important;
+      }
+
+      &__link {
+        color: #4968ee;
+      }
+    }
   }
+}
+
+.sign-up__button{
+  width: 50%;
+    margin: 20px auto;
+    display: block;
+    background-color: #4968ee !important;
+    border-radius: 0;
+    padding: 10px;
+    border-color: transparent !important;
+    transition: all .3s ease;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-delay: 0s;
+    transition-duration: 0.3s;
+    transition-property: all;
+    transition-timing-function: ease;
+
+    &:hover{
+      background-color: #5a6268 !important;
+    }
 }

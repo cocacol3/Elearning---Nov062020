@@ -1,6 +1,4 @@
 import Axios from "axios";
-<<<<<<< HEAD
-=======
 import { createAction } from ".";
 import { FETCH_APPROVED_COURSES, FETCH_APPROVED_STUDENTS, FETCH_PENDING_COURSES, FETCH_PENDING_STUDENTS, FETCH_UNREGISTERED_COURSES, FETCH_UNREGISTERED_STUDENTS, FETCH_USER_DETAIL, FETCH_USER_INFO, FETCH_USER_LIST, SET_USER } from './type';
 import * as yup from "yup";
@@ -19,7 +17,6 @@ export const signupUserSchema = yup.object().shape({
     .required("*Field is required!"),
   maNhom: yup.string().required("*Field is required!"),
 });
->>>>>>> update2021
 
 export const signUp = (user) => {
   return (dispatch) => {
@@ -49,14 +46,7 @@ export const logIn = (loginUser) => {
         console.log(res.data)
         localStorage.setItem("credentials", JSON.stringify(res.data));
         localStorage.setItem("accessToken", JSON.stringify(`Bearer ${res.data.accessToken}`));
-<<<<<<< HEAD
-        dispatch({
-          type: "SET_USER",
-          payload: res.data,
-        });
-=======
         dispatch(createAction(SET_USER, res.data))
->>>>>>> update2021
       })
       .catch((err) => {
         console.log(err);
@@ -65,8 +55,6 @@ export const logIn = (loginUser) => {
 };
 
 
-<<<<<<< HEAD
-=======
 export const fetchUserType = () => {
   return (dispatch) => {
     Axios({
@@ -332,4 +320,3 @@ alert('User has been deleted successfully!')        })
 
 
 
->>>>>>> update2021

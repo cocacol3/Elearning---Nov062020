@@ -4,11 +4,7 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-<<<<<<< HEAD
-  NavItem,  
-=======
   NavItem,
->>>>>>> update2021
 } from "reactstrap";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
@@ -16,23 +12,11 @@ import "./index.scss";
 import { Box } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import SignInButton from "../../Components/SignInButton/index";
-<<<<<<< HEAD
-import Switch from "@material-ui/core/Switch";
-import LogInUser from "../../Components/LogInUser/index";
-import ViewListIcon from "@material-ui/icons/ViewList";
-import useModal from "../../HOCs/useModal";
-import WishListModal from "../../Components/WishListModal/index";
-import { useLocation } from "react-router-dom";
-import SearchButton from "../../Components/SearchButton/index";
-import { createAction } from "../../Redux/Actions";
-import { FETCH_ACCESS_TOKEN, FETCH_CREDENTIALS } from "../../Redux/Actions/type";
-=======
 import LogInUser from "../../Components/LogInUser/index";
 import useModal from "../../HOCs/useModal";
 import { useLocation } from "react-router-dom";
 import SearchButton from "../../Components/SearchButton/index";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
->>>>>>> update2021
 
 const Header = () => {
   // Header size change
@@ -65,22 +49,9 @@ const Header = () => {
   // Set up Login user
   const loggedInUser = useSelector((state) => {
     return state.auth.loggedInUser;
-<<<<<<< HEAD
-  }); 
-  // End of user login
-
-  // Wish list modal setup
-  const { modal, toggle } = useModal();
-  const renderWishListModal = () => {
-    return <WishListModal modal={modal} toggleModal={toggle} />;
-  };
-  // End of wish list modal setup
-
-=======
   });
   // End of user login
 
->>>>>>> update2021
   // Change header
   const location = useLocation();
   const { pathname } = location;
@@ -102,20 +73,11 @@ const Header = () => {
       });
     }
   };
-<<<<<<< HEAD
-  useEffect(()=>{
-    getCredentials()
-  },[])
-  //End of get credentials and accessToken
-
-
-=======
   useEffect(() => {
     getCredentials();
   }, []);
   //End of get credentials and accessToken
 
->>>>>>> update2021
   const navClass =
     pathname === "/"
       ? navBar
@@ -133,11 +95,7 @@ const Header = () => {
             <NavbarBrand>
               <Box className="header__navBrand">
                 {/* <img src={logo}></img> */}
-<<<<<<< HEAD
-                <h4>Cyberpunk</h4>
-=======
                 <h4>Cyberstudy</h4>
->>>>>>> update2021
                 <h3>Academy</h3>
               </Box>
             </NavbarBrand>
@@ -151,41 +109,23 @@ const Header = () => {
                     </NavLink>
                   </NavItem>
                   <NavItem>
-<<<<<<< HEAD
-                    <NavLink className="header__navLink" to="/about">
-=======
+                    <NavLink className="header__navLink" to="/admin">
+                      Admin
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink className="header__navLink" to="/course">
+                      Course
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
                     <NavLink className="header__navLink" to="/about-us">
->>>>>>> update2021
                       About Us
                     </NavLink>
                   </NavItem>
                   <NavItem>
-<<<<<<< HEAD
-                    <NavLink className="header__navLink" to="/event">
-                      Event
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-=======
->>>>>>> update2021
                     <NavLink className="header__navLink" to="/contact">
                       Contact
-                    </NavLink>
-                  </NavItem>
-
-                  <NavItem>
-<<<<<<< HEAD
-                    <NavLink className="header__navLink" to="/courses">
-=======
-                    <NavLink className="header__navLink" to="/course">
->>>>>>> update2021
-                      Course
-                    </NavLink>
-                  </NavItem>
-
-                  <NavItem>
-                    <NavLink className="header__navLink" to="/admin">
-                      Admin
                     </NavLink>
                   </NavItem>
 
@@ -197,38 +137,15 @@ const Header = () => {
                     <Box>
                       <SearchButton />
                     </Box>
-<<<<<<< HEAD
-
-                    {/* Wish-list icon */}
-                    <Box onClick={toggle} className="header__listIcon">
-                      <ViewListIcon />
-
-                      {renderWishListModal()}
-                    </Box>
-
-                    {/* Switch button */}
-                    <Box className="header__switch">
-                      <Switch
-                        checked={state.checked}
-                        onChange={handleChange}
-                        name="checked"
-                        inputProps={{ "aria-label": "primary checkbox" }}
-                      />
-                    </Box>
-=======
->>>>>>> update2021
                   </Box>
                 </Nav>
               </Box>
             </Collapse>
           </Navbar>
         </Box>
-<<<<<<< HEAD
-=======
         <a className="back-to-top-button" href="#top">
           <KeyboardArrowUpIcon />
         </a>
->>>>>>> update2021
       </Box>
     </>
   );

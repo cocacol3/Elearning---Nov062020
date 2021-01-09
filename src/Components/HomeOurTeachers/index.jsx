@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-import "../../Scss/main.scss";
-=======
 import "../../scss/main.scss";
->>>>>>> update2021
 import teacher1 from "../../Assets/img/team-1-370x406.jpg";
 import teacher2 from "../../Assets/img/team-2-370x406.jpg";
 import teacher3 from "../../Assets/img/team-3-370x406.jpg";
@@ -12,11 +8,7 @@ import { Container } from "@material-ui/core";
 const HomeOurTeachers = () => {
 
   return (
-<<<<<<< HEAD
-    <section className="our-teachers">
-=======
     <section className="our-teachers" id="our-teachers">
->>>>>>> update2021
       <Container fixed>
         <div className="our-teachers__title">
           <div className="our-teachers__line"></div>

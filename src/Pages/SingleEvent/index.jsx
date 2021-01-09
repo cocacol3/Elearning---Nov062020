@@ -18,11 +18,7 @@ const SingleEvent = () => {
       ) : (
         <>
           <Header />
-<<<<<<< HEAD
-          <Banner />
-=======
           <Banner title='Single Event'/>
->>>>>>> update2021
           <SingleEventDetail />
           <Footer />
         </>

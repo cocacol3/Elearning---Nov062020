@@ -2,6 +2,10 @@
   color: #151515;
   @include ComponentPadding(90px);
 
+  & .admin__item__account__detail{
+    justify-content: space-between;
+  }
+
   a {
     @include TransitionValue();
 
@@ -163,22 +167,3 @@
     }
   }
 }
-
-// @include MediaQuery($xs) {
-//     border-left: none;
-//     border-top: 1px solid #e1e1e1;
-//     padding-top: 20px;
-//     text-align: center;
-//   }
-
-//   @media screen and (min-width: 576px) {
-//     text-align: left;
-//     flex-direction: row;
-//     padding-left: 28px;
-//     border-top: none;
-//     border-left: 1px solid #e1e1e1;
-//   }
-
-//   @media screen and (min-width: 768px) {
-//     font-size: 18px;
-//   }

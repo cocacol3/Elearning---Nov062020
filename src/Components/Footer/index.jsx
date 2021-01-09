@@ -1,18 +1,6 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import React, { Component } from "react";
 import "../../scss/main.scss";
 import logo from "../../Assets/img/logo-inverse-162x51.png";
-=======
-import { Container, Grid, Typography } from "@material-ui/core";
-import React from "react";
-import style from "./style";
->>>>>>> updateSearchApi
-=======
-import React, { Component } from "react";
-import "../../scss/main.scss";
-import logo from "../../Assets/img/logo-inverse-162x51.png";
->>>>>>> update2021
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
@@ -26,18 +14,11 @@ import pic3 from "../../Assets/img/gallery-image-12-128x120.jpg";
 import pic4 from "../../Assets/img/gallery-image-13-128x120.jpg";
 import ZoomInIcon from "@material-ui/icons/ZoomIn";
 import { Container, Grid, Typography } from "@material-ui/core";
-<<<<<<< HEAD
-// import {ImgZoom} from 'my-imgzoom';
-// import imgzoom from 'imgzoom';
-// import InnerImageZoom from 'react-inner-image-zoom';
- 
-=======
 import { Link } from "react-router-dom";
 // import {ImgZoom} from 'my-imgzoom';
 // import imgzoom from 'imgzoom';
 // import InnerImageZoom from 'react-inner-image-zoom';
 
->>>>>>> update2021
 // new ImgZoom({
 //     smallc:'.smallc'
 // });
@@ -73,44 +54,26 @@ const Footer = () => {
                     <li>
                       <div className="footer__top__content__left__bottom__contact">
                         <PhoneIcon className="footer__top__content__left__bottom__contact__icon" />
-<<<<<<< HEAD
-                        <a href="#">
-                          <span>+1 323-913-4688</span>{" "}
-                        </a>
-=======
                         <Link
                           className="footer__top__content__left__bottom__contact__link"
                           href="#"
                         >
                           <span>+1 323-913-4688</span>
                         </Link>
->>>>>>> update2021
                       </div>
                     </li>
 
                     <li>
                       <div className="footer__top__content__left__bottom__contact">
                         <ClockIcon className="footer__top__content__left__bottom__contact__icon" />
-<<<<<<< HEAD
-                        <p>Mon-Sat: 07:00AM - 05:00PM</p>{" "}
-=======
                         <p>Mon-Sat: 07:00AM - 05:00PM</p>
->>>>>>> update2021
                       </div>
                     </li>
 
                     <li>
                       <div className="footer__top__content__left__bottom__contact">
                         <LocationOnIcon className="footer__top__content__left__bottom__contact__icon" />
-<<<<<<< HEAD
-                        <a href="#">
-                          <span>
-                            4730 Crystal Springs Dr, Los Angeles, CA 90027
-                          </span>
-                        </a>
-=======
                         <p>4730 Crystal Springs Dr, Los Angeles, CA 90027</p>
->>>>>>> update2021
                       </div>
                     </li>
                   </ul>

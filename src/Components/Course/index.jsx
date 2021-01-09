@@ -5,23 +5,7 @@ import CourseItem from "../CourseItem/index";
 import "./index.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { getListCourse } from "../../Action/courseAction";
-=======
 import { getListCourse } from "../../Redux/Actions/courseAction";
->>>>>>> testagain2
-=======
-import { getListCourse } from "../../Action/courseAction";
->>>>>>> testagain
-=======
-import { getListCourse } from "../../Action/courseAction";
->>>>>>> updateSearchApi
-=======
-import { getListCourse } from "../../Redux/Actions/courseAction";
->>>>>>> update2021
 
 const Course = () => {
   const dispatch = useDispatch();

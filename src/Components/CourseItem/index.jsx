@@ -20,10 +20,7 @@ import { Box, Typography } from "@material-ui/core";
 import Popover from "@material-ui/core/Popover";
 import { useDispatch } from "react-redux";
 import "./index.scss";
-<<<<<<< HEAD
-=======
 import { Link } from "react-router-dom";
->>>>>>> update2021
 
 const useStyles = makeStyles((theme) => ({
   // Card setup
@@ -85,15 +82,6 @@ const CourseItem = (props) => {
   // End of Popover setup
 
   // Put to wish list
-<<<<<<< HEAD
-  const dispatch = useDispatch();
-  const putToWishList = () => {
-    dispatch({
-      type: "PUT_TO_WISHLIST",
-      payload: props,
-    });
-  };
-=======
   // const dispatch = useDispatch();
   // const putToWishList = () => {
   //   dispatch({
@@ -101,12 +89,11 @@ const CourseItem = (props) => {
   //     payload: props,
   //   });
   // };
->>>>>>> update2021
   // End of put to wish list
 
   return (
     <>
-      <Col lg="4" className="course__item">
+      <Col lg="4" md="6" className="course__item">
         <Card className="course__item__card">
           <CardHeader
             avatar={
@@ -114,19 +101,11 @@ const CourseItem = (props) => {
                 <img src={img} />
               </Avatar>
             }
-<<<<<<< HEAD
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
-=======
             // action={
             //   <IconButton aria-label="settings">
             //     <MoreVertIcon />
             //   </IconButton>
             // }
->>>>>>> update2021
             title={props.course.nguoiTao.hoTen}
           />
           <Box className="course__item__image">
@@ -136,11 +115,7 @@ const CourseItem = (props) => {
           <CardContent>{props.course.tenKhoaHoc}</CardContent>
           <CardActions disableSpacing>
             {/* Detaile icon */}
-<<<<<<< HEAD
-            <Box
-=======
             {/* <Box
->>>>>>> update2021
               aria-label="learn more"
               aria-owns={open ? "learn-more-popover" : undefined}
               aria-haspopup="true"
@@ -171,19 +146,11 @@ const CourseItem = (props) => {
               >
                 <Typography>Learn More</Typography>
               </Popover>
-<<<<<<< HEAD
-            </Box>
-            {/* End of Detail icon */}
-
-            {/* Add to favorite icon */}
-            <Box
-=======
             </Box> */}
             {/* End of Detail icon */}
 
             {/* Add to favorite icon */}
             {/* <Box
->>>>>>> update2021
               aria-label="add to favorites"
               aria-owns={open ? "mouse-over-popover-2" : undefined}
               aria-haspopup="true"
@@ -214,11 +181,6 @@ const CourseItem = (props) => {
               >
                 <span>Add to Wish-list</span>
               </Popover>
-<<<<<<< HEAD
-            </Box>
-            {/* End of Add to favourite icon */}
-
-=======
             </Box> */}
             {/* End of Add to favourite icon */}
 
@@ -229,7 +191,6 @@ const CourseItem = (props) => {
               View Full Details
             </Link>
 
->>>>>>> update2021
             <IconButton
               className={clsx(classes.expand, {
                 [classes.expandOpen]: expanded,

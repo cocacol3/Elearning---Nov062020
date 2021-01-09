@@ -20,11 +20,7 @@ const Contact = () => {
       ) : (
         <>
           <Header />
-<<<<<<< HEAD
-          <Banner />
-=======
           <Banner title=' Contact'/>
->>>>>>> update2021
           <ContactMap/>
           <ContactContactDetail/>
           <Content />

@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-const initialState = {
-  loggedInUser: "",
-  // credentials: "",
-  accessToken: "",
-=======
 let initialState = {
   loggedInUser: "",
   accessToken: "",
@@ -14,29 +8,14 @@ let initialState = {
   pendingStudents: [],
   approvedStudents: [],
   courseID: null,
-  userDetail: null,
+  userDetail: {},
   userList: [],
   userInfo: {},
->>>>>>> update2021
+  userResult: [],
 };
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-<<<<<<< HEAD
-    case "SET_USER": {
-      return { ...state, loggedInUser: action.payload };
-    }
-    case "DELETE_USER": {
-      return {...state, loggedInUser: action.payload};
-    //   return {...state, credentials: action.payload};
-    }
-    case "FETCH_ACCESS_TOKEN": {
-      return {...state, accessToken: action.payload};
-    }
-    default:
-      return {...state, loggedInUser: action.payload};
-    }
-=======
     case "SET_USER":
       return { ...state, loggedInUser: action.payload };
     case "DELETE_USER":
@@ -70,13 +49,15 @@ const authReducer = (state = initialState, action) => {
     case "FETCH_USER_INFO":
       state.userInfo = action.payload;
       return { ...state };
-      case "FETCH_UNREGISTERED_COURSES":
-        state.unregisteredCourses = action.payload;
-        return { ...state };
+    case "FETCH_UNREGISTERED_COURSES":
+      state.unregisteredCourses = action.payload;
+      return { ...state };
+    case "FETCH_USER_RESULT":
+      state.userResult = action.payload;
+      return { ...state };
     default:
       return state;
   }
->>>>>>> update2021
 };
 
 export default authReducer;

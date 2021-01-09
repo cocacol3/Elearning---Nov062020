@@ -1,45 +1,13 @@
-import {
-  Box,
-  Checkbox,
-  Container,
-  FormControlLabel,
-  TextField,
-} from "@material-ui/core";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { userService } from "../../Services";
+import { signupUserSchema } from "../../Services/user";
 import Header from "../../Components/Header/index";
 import Footer from "../../Components/Footer/index";
 import PreloadingPage from "../../Components/PreloadingPage/index";
 import PageBanner from "../../Components/PageBanner/index";
-import "./index.scss";
-import { Col, Row } from "reactstrap";
-import {signUp} from "../../Redux/Actions/userAction"
 
 const SignUp = () => {
-  // Handle Submit
-  const dispatch = useDispatch();
-  const [userInfo, setUserInfo] = useState({
-    taiKhoan: "",
-    matKhau: "",
-    hoTen: "",
-    soDT: "",
-    maNhom: "GP01",
-    email: "",
-  });
-
-  const handleUserChange = (e) => {
-    setUserInfo({...userInfo,
-      [e.target.name]:e.target.value
-    });
-    
-  };
-  const handleSubmit = (e) => { 
-    e.preventDefault();
-    dispatch(signUp(userInfo));
-    
-  };
-  // End of Handle Submit
-
   // Loading page
   const [loadingPage, setLoadingPage] = useState(true);
   setTimeout(() => {
@@ -47,16 +15,18 @@ const SignUp = () => {
   }, 1200);
   // End of loading page
 
-  // Checkbox set up
-  const [state, setState] = useState({
-    checked: false,
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+  const _handleSubmit = (values) => {
+    userService
+      .signUp(values)
+      .then((res) => {
+        console.log(res);
+        alert("Sign Up Successfully! Please login to start browsing courses.");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
-  // End of check box set up
   return (
     <>
       {loadingPage ? (
@@ -64,98 +34,108 @@ const SignUp = () => {
       ) : (
         <>
           <Header />
-<<<<<<< HEAD
-          <PageBanner />
-=======
-          <PageBanner title='Sign Up'/>
->>>>>>> update2021
-          <Box className="signUp">
-            <Container>
-              <Box className="signUp__text">
-                <h3>Welcome newbie</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Placeat vero mollitia, voluptatibus deserunt quis enim
-                  perspiciatis, beatae tempore asperiores illo aperiam ab
-                  suscipit nulla officiis doloremque hic. Labore natus minus
-                  excepturi iusto ab architecto nobis vitae exercitationem, non
-                  deleniti, molestias, commodi dolor sequi itaque ut rerum
-                  sapiente reiciendis qui in.
-                </p>
-              </Box>
-              <form onSubmit={handleSubmit} className="signUp__form">
-                <Box className="signUp__form__content">
-                  <Row>
-                    <Col className="signUp__item" lg="4">
-                      <TextField
-                        onChange={handleUserChange}
-                        label="Your Acount"
-                        variant="filled"
-                        name="taiKhoan"
-                      />
-                    </Col>
-                    <Col className="signUp__item" lg="4">
-                      <TextField
+          <PageBanner title="Sign Up" />
+          <div className="w-50 mx-auto">
+            <h1 className="display-4 text-center">Create New User Account</h1>
+            <Formik
+              initialValues={{
+                taiKhoan: "",
+                matKhau: "",
+                hoTen: "",
+                soDT: "",
+                email: "",
+                maNhom: "GP01",
+              }}
+              validationSchema={signupUserSchema}
+              onSubmit={_handleSubmit}
+              render={(formikProps) => (
+                <Form>
+                  <div className="form-group">
+                    <label>Username: </label>
+                    <Field
+                      type="text"
+                      className="form-control"
+                      name="taiKhoan"
+                      onChange={formikProps.handleChange}
+                    ></Field>
+                    <ErrorMessage name="taiKhoan">
+                      {(msg) => <div className="alert alert-dander">{msg}</div>}
+                    </ErrorMessage>
+                  </div>
+                  <div className="form-group">
+                    <label>Password: </label>
+                    <Field
                       type="password"
-                        onChange={handleUserChange}
-                        label="Password"
-                        variant="filled"
-                        name="matKhau"
-                      />
-                    </Col>
-                    <Col className="signUp__item" lg="4">
-                      <TextField
-                        onChange={handleUserChange}
-                        label="Your Fullname"
-                        variant="filled"
-                        name="hoTen"
-                      />
-                    </Col>
-                    <Col className="signUp__item" lg="4">
-                      <TextField
-                        onChange={handleUserChange}
-                        label="Phone number"
-                        variant="filled"
-                        name="soDt"
-                      />
-                    </Col>
-                    <Col className="signUp__item" lg="4">
-                      <TextField
-                        onChange={handleUserChange}
-                        label="Email Address"
-                        variant="filled"
-                        name="email"
-                      />
-                    </Col>
-                    
-                  </Row>
-                </Box>
-                <Box>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={state.checked}
-                        onChange={handleChange}
-                        name="checked"
-                      />
-                    }
-                    label="By clicking here, you confirm that you have read and understand our Policy and User Guildlines."
-                  />
-                </Box>
-                <Box className="signUp__button">
-                  <Box>
-                    <button type="submit" className="signUp__container">
-                      Sign up
-                    </button>
-                  </Box>
-                </Box>
-              </form>
-            </Container>
-          </Box>
+                      className="form-control"
+                      name="matKhau"
+                      onChange={formikProps.handleChange}
+                    ></Field>
+                    <ErrorMessage name="matKhau" />
+                  </div>
+                  <div className="form-group">
+                    <label>Full name: </label>
+                    <Field
+                      type="text"
+                      className="form-control"
+                      name="hoTen"
+                      onChange={formikProps.handleChange}
+                    ></Field>
+                    <ErrorMessage name="hoTen" />
+                  </div>
+                  <div className="form-group">
+                    <label>Email: </label>
+                    <Field
+                      type="email"
+                      className="form-control"
+                      name="email"
+                      onChange={formikProps.handleChange}
+                    ></Field>
+                    <ErrorMessage name="email" />
+                  </div>
+                  <div className="form-group">
+                    <label>Phone number: </label>
+                    <Field
+                      type="text"
+                      className="form-control"
+                      name="soDT"
+                      onChange={formikProps.handleChange}
+                    ></Field>
+                    <ErrorMessage name="soDT" />
+                  </div>
+                  <div className="form-group">
+                    <label>Group ID: </label>
+                    <Field
+                      component="select"
+                      className="form-control"
+                      name="maNhom"
+                      onChange={formikProps.handleChange}
+                    >
+                      <option>GP01</option>
+                      <option>GP02</option>
+                      <option>GP03</option>
+                      <option>GP04</option>
+                      <option>GP05</option>
+                      <option>GP06</option>
+                      <option>GP07</option>
+                      <option>GP08</option>
+                      <option>GP09</option>
+                      <option>GP10</option>
+                    </Field>
+                    <div className="text-center">
+                      <button className="sign-up__button btn-secondary">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </Form>
+              )}
+            />
+          </div>
           <Footer />
         </>
       )}
     </>
   );
 };
+
 export default SignUp;

@@ -4,11 +4,7 @@ import Header from "../../Components/Header/index";
 import PageBanner from "../../Components/PageBanner/index";
 import Footer from "../../Components/Footer/index";
 import PreloadingPage from "../../Components/PreloadingPage/index";
-<<<<<<< HEAD
-import AllCourseItem from "../../Components/AllCourseItem/index";
-=======
 import CourseItem from "../../Components/CourseItem/index";
->>>>>>> update2021
 import "./index.scss";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -31,11 +27,7 @@ const AllCourses = () => {
     if (!courseList) return null;
 
     return courseList.map((course, index) => {
-<<<<<<< HEAD
-      return <AllCourseItem course={course} key={index} />;
-=======
       return <CourseItem course={course} key={index} />;
->>>>>>> update2021
     });
   };
   // End of courses
@@ -52,11 +44,7 @@ const AllCourses = () => {
       ) : (
         <>
           <Header />
-<<<<<<< HEAD
-          <PageBanner />
-=======
           <PageBanner title='Course'/>
->>>>>>> update2021
           <Container>
             <Box className="allCourse">
               <Box textAlign="center" className="allCourse__headline">

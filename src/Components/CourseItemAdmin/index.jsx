@@ -100,7 +100,7 @@ const CourseItemAdmin = (props) => {
 
   return (
     <>
-      <Col lg="4" className="course__item">
+      <Col lg="4" md="6" className="course__item">
         <Card className="course__item__card">
           <CardHeader
             avatar={
@@ -108,11 +108,6 @@ const CourseItemAdmin = (props) => {
                 <img src={img} />
               </Avatar>
             }
-            // action={
-            //   <IconButton aria-label="settings">
-            //     <MoreVertIcon />
-            //   </IconButton>
-            // }
             title={props.course.nguoiTao.hoTen}
           />
           <Box className="course__item__image">
@@ -121,96 +116,11 @@ const CourseItemAdmin = (props) => {
 
           <CardContent>{props.course.tenKhoaHoc}</CardContent>
           <CardActions disableSpacing>
-            {/* Detaile icon */}
-            {/* <Box
-              aria-label="learn more"
-              aria-owns={open ? "learn-more-popover" : undefined}
-              aria-haspopup="true"
-              onMouseEnter={handlePopoverOpen}
-              onMouseLeave={handlePopoverClose}
-            >
-              <IconButton>
-                <AnnouncementIcon />
-              </IconButton>
-              <Popover
-                id="learn-more-popover"
-                className={classes.popover}
-                classes={{
-                  paper: classes.paper,
-                }}
-                open={open}
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                onClose={handlePopoverClose}
-                disableRestoreFocus
-              >
-                <Typography>Learn More</Typography>
-              </Popover>
-            </Box> */}
-            {/* End of Detail icon */}
-
-            {/* Add to favorite icon */}
-            {/* <Box
-              aria-label="add to favorites"
-              aria-owns={open ? "mouse-over-popover-2" : undefined}
-              aria-haspopup="true"
-              onMouseEnter={handlePopoverOpen}
-              onMouseLeave={handlePopoverClose}
-            >
-              <IconButton onClick={() => putToWishList()}>
-                <FavoriteIcon />
-              </IconButton>
-              <Popover
-                id="mouse-over-popover-2"
-                className={classes.popover__second}
-                classes={{
-                  paper: classes.paper,
-                }}
-                open={open}
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                onClose={handlePopoverClose}
-                disableRestoreFocus
-              >
-                <span>Add to Wish-list</span>
-              </Popover>
-            </Box> */}
-            {/* End of Add to favourite icon */}
-
-            {/* <Link
-              className="course__item__button"
-              id="button"
-              to={`/detail/${props.course.maKhoaHoc}`}
-            >
-              Proceed To Detail Page
-            </Link> */}
-
-            <Link
-              className="course__item__button"
-              to={`/students-list/${props.course.maKhoaHoc}`}
-            >
-              List of Registered Students
-            </Link>
-            <br />
             <button
               className="course__item__button"
               onClick={() => _handleDelete(props.course.maKhoaHoc)}
             >
-              Delete Course
+              Remove Course
             </button>
 
             <IconButton

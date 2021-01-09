@@ -7,9 +7,7 @@ import AllCourses from "./Pages/AllCourses/index";
 import Contact from "./Pages/Contact/index";
 import Detail from "./Pages/Detail";
 import Admin from "./Pages/Admin/index";
-import UserList from "./Pages/UserList";
 import CourseCategoriesItemDetail from "./Pages/CourseCategoriesItemDetail";
-import CourseStudents from "./Pages/CourseStudents";
 import SingleEvent from "./Pages/SingleEvent";
 import SignUp from "./Pages/SignUp";
 import Auth from "./HOCs";
@@ -17,6 +15,7 @@ import { connect } from "react-redux";
 import { createAction } from "./Redux/Actions";
 import { FETCH_ACCESS_TOKEN, SET_USER } from "./Redux/Actions/type";
 import AllCoursesResult from "./Pages/AllCoursesResult";
+import UserInfo from "./Pages/UserInfo";
 
 class App extends Component {
   render() {
@@ -28,16 +27,15 @@ class App extends Component {
           <Route path="/detail/:courseId" component={Detail} />
           <Route path="/course" component={AllCourses} />
           <Route path="/about-us" component={About} />
-          <Route path="/user-list" component={UserList} />
           <Auth path="/admin" Component={Admin} />
           <Route path="/sign-up" component={SignUp} />
           <Route path="/single-event" component={SingleEvent} />
-          <Route path="/students-list/:listId" component={CourseStudents} />
           <Route
             path="/course-categories-detail/:courseCategoriesId"
             component={CourseCategoriesItemDetail}
           />
           <Route path="/course-result" component={AllCoursesResult} />
+          <Route path="/user-info" component={UserInfo} />
           <Route path="/" component={Home} />
         </Switch>
       </BrowserRouter>
