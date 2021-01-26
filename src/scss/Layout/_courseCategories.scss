@@ -1,0 +1,21 @@
+.course__categories {
+  justify-content: space-around;
+
+  &__item {
+    border: 1px solid #4968ee !important;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+
+    &:hover {
+      text-decoration: none;
+      background-color: #353535;
+      color: #fff;
+      border: 1px solid transparent !important;
+    }
+
+    p {
+      margin: auto;
+    }
+  }
+}
